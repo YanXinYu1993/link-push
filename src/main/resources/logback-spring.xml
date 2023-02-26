@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+
+	<!-- 业务日志路径 注意${LOG_PATH}和${LOG_FILE}分别是获取配置文件中的路径和文件名称-->
+	<property name="logging.file.path" value="${LOG_PATH}/${LOG_FILE}"/>
+
+	<!-- 日志保存时间(天) -->
+	<property name="log.save.time.day" value="30"/>
+
+	<!-- 日志最大容量 -->
+	<property name="log.max.capacity" value="100GB"/>
+
+	<!-- 输出到控制台 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%date{yyyy-MM-dd HH:mm:ss.SSS}\t[%thread]\t%-5level\t%logger\t-\t%X{KEY_WORDS}%m%n</Pattern>
+			<charset class="java.nio.charset.Charset">utf-8</charset>
+		</encoder>
+	</appender>
+
+	<!-- 打印INFO以上全量日志 -->
+	<appender name="COMMON-ALL-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<encoder>
+			<Pattern>%date{yyyy-MM-dd HH:mm:ss.SSS}\t[%thread]\t%-5level\t%logger\t-\t%X{KEY_WORDS}%msg%n</Pattern>
+			<charset class="java.nio.charset.Charset">utf-8</charset>
+		</encoder>
+		<file>${logging.file.path}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${logging.file.path}.log.%d{yyyy-MM-dd}-%i</FileNamePattern>
+			<maxHistory>${log.save.time.day}</maxHistory>
+			<totalSizeCap>${log.max.capacity}</totalSizeCap>
+			<TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>80MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+	</appender>
+
+	<!-- 打印 ERROR 日志 标准 APPENDER -->
+	<appender name="COMMON-ERROR-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+		<encoder>
+			<Pattern>%date{yyyy-MM-dd HH:mm:ss.SSS}\t[%thread]\t%-5level\t%logger\t-\t%X{KEY_WORDS}%msg%n</Pattern>
+			<charset class="java.nio.charset.Charset">utf-8</charset>
+		</encoder>
+		<file>${logging.file.path}.error.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${logging.file.path}.common-error.log.%d{yyyy-MM-dd}</FileNamePattern>
+			<maxHistory>${log.save.time.day}</maxHistory>
+			<totalSizeCap>${log.max.capacity}</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<root level="INFO">
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="COMMON-ALL-APPENDER"/>
+		<appender-ref ref="COMMON-ERROR-APPENDER"/>
+	</root>
+
+</configuration>

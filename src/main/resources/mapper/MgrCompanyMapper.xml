@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.push.mapper.MgrCompanyMapper">
+  <resultMap id="BaseResultMap" type="com.push.entity.MgrCompany">
+    <!--@mbg.generated-->
+    <!--@Table mgr_company-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="port" jdbcType="INTEGER" property="port" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="max_size" jdbcType="INTEGER" property="maxSize" />
+    <result column="token" jdbcType="VARCHAR" property="token" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="is_gateways" jdbcType="INTEGER" property="isGateways" />
+    <result column="recon_state" jdbcType="INTEGER" property="reconState" />
+    <result column="heartbeat_state" jdbcType="INTEGER" property="heartbeatState" />
+    <result column="alarm_state" jdbcType="INTEGER" property="alarmState" />
+    <result column="timeout_state" jdbcType="BOOLEAN" property="timeoutState" />
+    <result column="signature" jdbcType="BOOLEAN" property="signature" />
+    <result column="parent_company_id" jdbcType="BIGINT" property="parentCompanyId" />
+    <result column="sub_company_num" jdbcType="INTEGER" property="subCompanyNum" />
+    <result column="suf_topic" jdbcType="VARCHAR" property="sufTopic" />
+    <result column="pre_topic" jdbcType="VARCHAR" property="preTopic" />
+    <result column="push_device_status" jdbcType="VARCHAR" property="pushDeviceStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, address, telephone, email, `type`, url, port, `state`, max_size, token, 
+    create_time, is_gateways, recon_state, heartbeat_state, alarm_state, timeout_state, 
+    signature, parent_company_id, sub_company_num, suf_topic, pre_topic, push_device_status
+  </sql>
+</mapper>

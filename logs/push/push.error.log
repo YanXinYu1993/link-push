@@ -1,0 +1,815 @@
+2023-02-25 20:00:21.386	[main]	ERROR	org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter	-	
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'commitManager', defined in class path resource [com/push/DataPushConfiguration.class], could not be registered. A bean with that name has already been defined in file [/Users/yu/IdeaProjects/linkware-data-push/target/classes/com/push/core/CommitManager.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2023-02-25 20:06:02.413	[main]	ERROR	org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter	-	
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field redisson in com.push.core.CommitManager required a bean of type 'org.redisson.Redisson' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.redisson.Redisson' in your configuration.
+
+2023-02-25 20:09:19.992	[main]	ERROR	org.springframework.boot.SpringApplication	-	Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commitManager': Unsatisfied dependency expressed through field 'redisson'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisson' defined in class path resource [org/redisson/spring/starter/RedissonAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redisson' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 127.0.0.1/127.0.0.1:6379
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.push.App.main(App.java:23)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisson' defined in class path resource [org/redisson/spring/starter/RedissonAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redisson' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 127.0.0.1/127.0.0.1:6379
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	... 20 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redisson' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 127.0.0.1/127.0.0.1:6379
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 33 common frames omitted
+Caused by: org.redisson.client.RedisConnectionException: Unable to connect to Redis server: 127.0.0.1/127.0.0.1:6379
+	at org.redisson.connection.pool.ConnectionPool$1.lambda$run$0(ConnectionPool.java:160)
+	at org.redisson.misc.RedissonPromise.lambda$onComplete$0(RedissonPromise.java:183)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:557)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
+	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
+	at org.redisson.misc.RedissonPromise.tryFailure(RedissonPromise.java:96)
+	at org.redisson.connection.pool.ConnectionPool.promiseFailure(ConnectionPool.java:330)
+	at org.redisson.connection.pool.ConnectionPool.lambda$createConnection$1(ConnectionPool.java:296)
+	at org.redisson.misc.RedissonPromise.lambda$onComplete$0(RedissonPromise.java:183)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583)
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
+	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
+	at org.redisson.misc.RedissonPromise.tryFailure(RedissonPromise.java:96)
+	at org.redisson.client.RedisClient$2$1.run(RedisClient.java:240)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.redisson.client.RedisException: ERR AUTH <password> called without any password configured for the default user. Are you sure your configuration is correct?. channel: [id: 0xfb6e6594, L:/127.0.0.1:50229 - R:127.0.0.1/127.0.0.1:6379] command: (AUTH), params: (password masked)
+	at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:365)
+	at org.redisson.client.handler.CommandDecoder.decodeCommand(CommandDecoder.java:209)
+	at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:147)
+	at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:117)
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:529)
+	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:366)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	... 4 common frames omitted
+2023-02-25 20:09:49.611	[main]	ERROR	org.springframework.boot.SpringApplication	-	Application run failed
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:771)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.push.App.main(App.java:23)
+Caused by: java.lang.NullPointerException: null
+	at com.push.App.run(App.java:34)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:768)
+	... 5 common frames omitted
+2023-02-25 20:10:45.707	[Thread-13]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:15
+java.lang.StringIndexOutOfBoundsException: String index out of range: -20
+	at java.lang.String.substring(String.java:1931)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:80)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+2023-02-25 20:10:45.707	[Thread-10]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:9
+java.lang.StringIndexOutOfBoundsException: String index out of range: -20
+	at java.lang.String.substring(String.java:1931)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:80)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+2023-02-25 20:10:45.707	[Thread-12]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:11
+java.lang.StringIndexOutOfBoundsException: String index out of range: -20
+	at java.lang.String.substring(String.java:1931)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:80)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+2023-02-25 20:10:45.708	[Thread-11]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:10
+java.lang.StringIndexOutOfBoundsException: String index out of range: -20
+	at java.lang.String.substring(String.java:1931)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:80)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+2023-02-25 20:12:02.023	[Thread-35]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:424
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.CommandAsyncService.async(CommandAsyncService.java:609)
+	at org.redisson.command.CommandAsyncService.readAsync(CommandAsyncService.java:380)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:820)
+	... 11 common frames omitted
+2023-02-25 20:12:02.023	[Thread-14]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:24
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.CommandAsyncService.async(CommandAsyncService.java:609)
+	at org.redisson.command.CommandAsyncService.readAsync(CommandAsyncService.java:380)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:820)
+	... 11 common frames omitted
+2023-02-25 20:12:02.023	[Thread-34]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:422
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.CommandAsyncService.async(CommandAsyncService.java:609)
+	at org.redisson.command.CommandAsyncService.readAsync(CommandAsyncService.java:380)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:820)
+	... 11 common frames omitted
+2023-02-25 20:12:02.023	[Thread-27]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:176
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.CommandAsyncService.async(CommandAsyncService.java:609)
+	at org.redisson.command.CommandAsyncService.readAsync(CommandAsyncService.java:380)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:820)
+	... 11 common frames omitted
+2023-02-25 20:12:02.023	[Thread-25]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:137
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.CommandAsyncService.async(CommandAsyncService.java:609)
+	at org.redisson.command.CommandAsyncService.readAsync(CommandAsyncService.java:380)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:820)
+	... 11 common frames omitted
+2023-02-25 20:12:02.023	[Thread-20]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:69
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.CommandAsyncService.async(CommandAsyncService.java:609)
+	at org.redisson.command.CommandAsyncService.readAsync(CommandAsyncService.java:380)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:820)
+	... 11 common frames omitted
+2023-02-25 20:12:02.027	[Thread-23]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:92
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.CommandAsyncService.async(CommandAsyncService.java:609)
+	at org.redisson.command.CommandAsyncService.readAsync(CommandAsyncService.java:380)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:820)
+	... 11 common frames omitted
+2023-02-25 20:12:02.028	[Thread-16]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:31
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.CommandAsyncService.async(CommandAsyncService.java:609)
+	at org.redisson.command.CommandAsyncService.readAsync(CommandAsyncService.java:380)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:820)
+	... 11 common frames omitted
+2023-02-25 20:12:02.028	[Thread-32]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:419
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.CommandAsyncService.async(CommandAsyncService.java:609)
+	at org.redisson.command.CommandAsyncService.readAsync(CommandAsyncService.java:380)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:820)
+	... 11 common frames omitted
+2023-02-25 20:12:02.028	[Thread-33]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:420
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.CommandAsyncService.async(CommandAsyncService.java:609)
+	at org.redisson.command.CommandAsyncService.readAsync(CommandAsyncService.java:380)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:820)
+	... 11 common frames omitted
+2023-02-25 20:12:02.045	[Thread-15]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:30
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.CommandAsyncService.async(CommandAsyncService.java:609)
+	at org.redisson.command.CommandAsyncService.readAsync(CommandAsyncService.java:380)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:820)
+	... 11 common frames omitted
+2023-02-25 20:12:02.045	[Thread-31]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:415
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.CommandAsyncService.async(CommandAsyncService.java:609)
+	at org.redisson.command.CommandAsyncService.readAsync(CommandAsyncService.java:380)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:820)
+	... 11 common frames omitted
+2023-02-25 20:12:02.061	[Thread-24]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:115
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.CommandAsyncService.async(CommandAsyncService.java:609)
+	at org.redisson.command.CommandAsyncService.readAsync(CommandAsyncService.java:380)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:820)
+	... 11 common frames omitted
+2023-02-25 20:12:02.061	[Thread-22]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:91
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.CommandAsyncService.async(CommandAsyncService.java:609)
+	at org.redisson.command.CommandAsyncService.readAsync(CommandAsyncService.java:380)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:820)
+	... 11 common frames omitted
+2023-02-25 20:12:03.489	[Thread-18]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:37
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.RedisExecutor$2.run(RedisExecutor.java:245)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2023-02-25 20:12:03.493	[Thread-17]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:35
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.RedisExecutor$2.run(RedisExecutor.java:245)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2023-02-25 20:12:03.489	[Thread-30]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:414
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.RedisExecutor$2.run(RedisExecutor.java:245)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2023-02-25 20:12:03.492	[Thread-28]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:179
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.RedisExecutor$2.run(RedisExecutor.java:245)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2023-02-25 20:12:03.492	[Thread-26]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:149
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.RedisExecutor$2.run(RedisExecutor.java:245)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2023-02-25 20:12:03.492	[Thread-21]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:84
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.RedisExecutor$2.run(RedisExecutor.java:245)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2023-02-25 20:12:03.492	[Thread-29]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:413
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.RedisExecutor$2.run(RedisExecutor.java:245)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2023-02-25 20:12:03.489	[Thread-19]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:38
+org.springframework.dao.InvalidDataAccessApiUsageException: Redisson is shutdown; nested exception is org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:48)
+	at org.redisson.spring.data.connection.RedissonExceptionConverter.convert(RedissonExceptionConverter.java:35)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.redisson.spring.data.connection.RedissonConnection.transform(RedissonConnection.java:216)
+	at org.redisson.spring.data.connection.RedissonConnection.syncFuture(RedissonConnection.java:211)
+	at org.redisson.spring.data.connection.RedissonConnection.sync(RedissonConnection.java:441)
+	at org.redisson.spring.data.connection.RedissonConnection.read(RedissonConnection.java:822)
+	at org.redisson.spring.data.connection.RedissonConnection.get(RedissonConnection.java:556)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.get(DefaultStringRedisConnection.java:438)
+	at org.springframework.data.redis.core.DefaultValueOperations$1.inRedis(DefaultValueOperations.java:58)
+	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.push.simple.GeneralPushServer.getCurrentIndex(GeneralPushServer.java:113)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:70)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:140)
+Caused by: org.redisson.RedissonShutdownException: Redisson is shutdown
+	at org.redisson.command.RedisExecutor.execute(RedisExecutor.java:110)
+	at org.redisson.command.RedisExecutor$2.run(RedisExecutor.java:245)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715)
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34)
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703)
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790)
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2023-02-25 20:21:38.472	[Thread-11]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:9
+java.lang.StringIndexOutOfBoundsException: String index out of range: -20
+	at java.lang.String.substring(String.java:1931)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:80)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:144)
+2023-02-25 20:33:50.096	[Thread-13]	ERROR	com.push.simple.GeneralPushServer	-	error:companyId:9
+java.lang.IllegalMonitorStateException: null
+	at java.lang.Object.notify(Native Method)
+	at com.push.simple.GeneralPushServer.close(GeneralPushServer.java:71)
+	at com.push.simple.GeneralPushServer.run(GeneralPushServer.java:104)
+	at com.push.simple.GeneralPushServer$CompanyPushThread.run(GeneralPushServer.java:151)
+2023-02-25 20:46:40.522	[main]	ERROR	org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter	-	
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  pushEventHandler (field private com.push.core.DataPushServer com.push.core.PushEventHandler.dataPushServer)
+↑     ↓
+|  dataPushServer defined in class path resource [com/push/DataPushConfiguration.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2023-02-25 20:47:28.749	[main]	ERROR	org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter	-	
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  pushEventHandler defined in file [/Users/yu/IdeaProjects/linkware-data-push/target/classes/com/push/core/PushEventHandler.class]
+↑     ↓
+|  dataPushServer defined in class path resource [com/push/DataPushConfiguration.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+

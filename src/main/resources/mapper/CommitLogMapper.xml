@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.push.mapper.CommitLogMapper">
+  <resultMap id="BaseResultMap" type="com.push.entity.CommitLog">
+    <!--@mbg.generated-->
+    <!--@Table commit_log-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="start_index" jdbcType="BIGINT" property="startIndex" />
+    <result column="end_index" jdbcType="BIGINT" property="endIndex" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, start_index, end_index, `status`, create_time
+  </sql>
+</mapper>

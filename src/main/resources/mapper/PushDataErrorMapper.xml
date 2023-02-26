@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.push.mapper.PushDataErrorMapper">
+  <resultMap id="BaseResultMap" type="com.push.entity.PushDataError">
+    <!--@mbg.generated-->
+    <!--@Table push_data_error-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="error" jdbcType="VARCHAR" property="error" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="company_id" jdbcType="BIGINT" property="companyId" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="push_data" jdbcType="VARCHAR" property="pushData" />
+    <result column="return_data" jdbcType="VARCHAR" property="returnData" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, error, company_name, company_id, url, push_data, return_data, create_time
+  </sql>
+</mapper>

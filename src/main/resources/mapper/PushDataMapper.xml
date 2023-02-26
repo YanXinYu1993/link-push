@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.push.mapper.PushDataMapper">
+  <resultMap id="BaseResultMap" type="com.push.entity.PushData">
+    <!--@mbg.generated-->
+    <!--@Table push_data-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="application_id" jdbcType="BIGINT" property="applicationId" />
+    <result column="app_eui" jdbcType="VARCHAR" property="appEui" />
+    <result column="data" jdbcType="VARCHAR" property="data" />
+    <result column="data_type" jdbcType="INTEGER" property="dataType" />
+    <result column="device_type" jdbcType="INTEGER" property="deviceType" />
+    <result column="is_send" jdbcType="INTEGER" property="isSend" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="mac" jdbcType="VARCHAR" property="mac" />
+    <result column="reserver" jdbcType="VARCHAR" property="reserver" />
+    <result column="send_date" jdbcType="TIMESTAMP" property="sendDate" />
+    <result column="v_id" jdbcType="VARCHAR" property="vId" />
+    <result column="company_id" jdbcType="BIGINT" property="companyId" />
+    <result column="gateways" jdbcType="VARCHAR" property="gateways" />
+    <result column="create_times" jdbcType="VARCHAR" property="createTimes" />
+    <result column="send_dates" jdbcType="VARCHAR" property="sendDates" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, create_time, application_id, app_eui, `data`, data_type, device_type, is_send, 
+    last_update_time, mac, reserver, send_date, v_id, company_id, gateways, create_times, 
+    send_dates
+  </sql>
+</mapper>
